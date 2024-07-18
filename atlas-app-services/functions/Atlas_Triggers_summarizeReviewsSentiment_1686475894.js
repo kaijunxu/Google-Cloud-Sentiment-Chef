@@ -1,4 +1,4 @@
-const serviceName = "M0";
+const serviceName = "mongodb-atlas";
 const databaseName = "sample_restaurants";
 const reviewsCollectionName = "processed_reviews";
 const restaurantCollectionName = "restaurants";
@@ -24,7 +24,7 @@ exports = async function(changeEvent) {
   }
 
   const updateResult = await restaurantCollection.updateOne({
-    _id: restaurantId
+    restaurant_id: restaurantId
   }, {
     $set: {
       summary: summary,
@@ -75,7 +75,7 @@ async function summarizeReviewSentiment(restaurantId) {
 
 async function shouldUpdateSummary(collection, documentId, numberOfDays) {
   const restaurant = await collection.findOne({
-    _id: documentId
+    restaurant_id: documentId
   });
 
   if (!restaurant) {

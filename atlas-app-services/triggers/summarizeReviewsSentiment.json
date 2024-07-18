@@ -7,7 +7,7 @@
         ],
         "database": "sample_restaurants",
         "collection": "processed_reviews",
-        "service_name": "M0",
+        "service_name": "mongodb-atlas",
         "match": {},
         "project": {},
         "full_document": true,

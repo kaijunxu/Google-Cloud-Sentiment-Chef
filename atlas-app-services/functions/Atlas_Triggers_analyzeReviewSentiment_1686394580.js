@@ -1,4 +1,4 @@
-const serviceName = "M0";
+const serviceName = "mongodb-atlas";
 const databaseName = "sample_restaurants";
 const collectionName = "processed_reviews";
 // Add the Google Cloud Function URL below
@@ -23,7 +23,7 @@ exports = async function(changeEvent) {
   try {
     // The response body is a BSON.Binary object.
     analysis = EJSON.parse(response?.body?.text())?.sentiment;
-    parsedResponse = JSON.parse(analysis);
+    parsedResponse = EJSON.parse(response?.body?.text());
   } catch (error) {
     throw new Error("Parsing sentiment analysis failed. " + analysis);
   }
